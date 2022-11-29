@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+    <script src="script/react.development.js"></script>
+    <script src="script/react-dom.development.js"></script>
+    <script src="script/babel.min.js"></script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    const data = ["孙悟空","猪八戒","沙和尚"];
+    // const arr = [];
+    // for (let i = 0; i < data.length; i++){
+    //     arr.push(<li>{data[i]}</li>);
+    // }
+    // console.log(arr);
+    const div = <div style={{color:"red"}}>
+        <ul>{data.map(item => <li key={item}>{item}</li>)}</ul>
+    </div>;
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(div);
+
+    document.getElementById('btn').addEventListener('click',()=>{
+        const data = ["唐僧","孙悟空","猪八戒","沙和尚"];
+        const div = <div style={{color:"red"}}>
+            <ul>{data.map(item => <li key={item}>{item}</li>)}</ul>
+        </div>;
+        root.render(div);
+    });
+</script>
+</html>
